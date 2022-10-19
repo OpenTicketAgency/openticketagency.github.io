@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover" />
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000">
+
+    <title>Open Ticket Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            background-color: #fff;
+            font-family: "ヒラギノ角ゴ ProN", "Meiryo";
+            touch-action: manipulation;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: url("img/bg.png");
+            background-attachment: fixed;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .header_image {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header_image_res {
+            display: none;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .block {
+            width: 64%;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .block_center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 64%;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .summary_text {
+            color: #000;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .structure_diagram {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features_list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features_list_item {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: stretch;
+            text-align: center;
+            width: 30%;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features_list_item h3 {
+            margin-bottom: 10px;
+        }
+
+        .features_list_item h3::before {
+            content: "✨";
+            margin-right: 5px;
+        }
+
+        .features_list_item h3::after {
+            content: "✨";
+            margin-left: 5px;
+        }
+
+        .features_text {
+            color: #000;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .structure_item {
+            width: 90%;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .structure_item h3::before {
+            content: "⚡️";
+            margin-right: 5px;
+        }
+
+        .structure_item p {
+            width: 95%;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .development_cycle {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .roadmaps {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .roadmaps h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .roadmaps h3::before {
+            content: "⚡️";
+            margin-right: 5px;
+        }
+
+        .roadmaps p {
+            width: 95%;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .roadmaps ul {
+            width: 80%;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            list-style: none;
+        }
+
+        .roadmaps_done {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .roadmaps_undone {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .roadmaps_done::before {
+            content: "✅";
+            margin-right: 5px;
+        }
+
+        .roadmaps_undone::before {
+            content: "🚧";
+            margin-right: 5px;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 100%;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            border-top: 1px solid #000;
+            padding-top: 10px;
+        }
+
+        .footer_item {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+
+        @media screen and (max-width:480px) {
+            body {
+                width: 90%;
+            }
+
+            .block {
+                width: 100%;
+            }
+
+            .block_center {
+                width: 100%;
+            }
+
+            .header_image {
+                display: none;
+            }
+
+            .header_image_res {
+                display: block;
+            }
+
+            .summary_text {
+                width: 100%;
+            }
+
+            .structure_diagram {
+                width: 100%;
+            }
+
+            .features_list {
+                flex-direction: column;
+            }
+
+            .features_list_item {
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                text-align: left;
+            }
+
+            .features_text {
+                width: 100%;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+
+            .structure_item {
+                width: 100%;
+            }
+
+            .roadmaps {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width:781px) {}
+    </style>
+</head>
+
+<body>
+    <div class="block_center">
+        <img src="img/banner.png" alt="Open Ticket Agency" class="header_image" />
+        <img src="img/banner_res.png" alt="Open Ticket Agency" class="header_image_res" />
+    </div>
+    <div class="block">
+        <div class="summary_text">
+            Open Ticket Agency is an open source code base for smart contracts and reference web applications that
+            implement ticketing systems on the Ethereum blockchain.
+        </div>
+    </div>
+    <div class="block">
+        <h2>Features</h2>
+        <div class="features_list">
+            <div class="features_list_item">
+                <div class="features_text">
+                    <h3>Open Source</h3>
+                    <p>
+                        It's open source. Anyone can use and modify the code for their own needs.
+                    </p>
+                </div>
+            </div>
+            <div class="features_list_item">
+                <div class="features_text">
+                    <h3>Decentralized</h3>
+                    <p>
+                        It's a decentralized. Service is non-stop, data is stored on the blockchain.
+                    </p>
+                </div>
+            </div>
+            <div class="features_list_item">
+                <div class="features_text">
+                    <h3>Web App</h3>
+                    <p>
+                        It's based on <a href="https://github.com/craftkit" target="_blank">craftkit</a>,
+                        a new library for readability and maintainability.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="block">
+        <h2>Structure</h2>
+    </div>
+    <div class="block_center">
+        <img src="img/ticketagency.png" alt="Open Ticket Agency" class="structure_diagram">
+    </div>
+    <div class="block_center">
+        <div class="structure_item">
+            <h3>Smart Contract</h3>
+            <p>
+                Open Ticket Agency consists of several smart contracts.
+                Factory contract is a contract that creates agency contract. This is usually deployed by the owner of
+                the system or your self. Agency contract manages show contracts. Show contract manages ticket sales.
+            </p>
+        </div>
+        <div class="structure_item">
+            <h3>Deployer App</h3>
+            <p>
+                Deployer app is a web application that deploys agency contract for your business.
+            </p>
+        </div>
+        <div class="structure_item">
+            <h3>Agency App</h3>
+            <p>
+                Agency app is a web application that creates and manages show contracts.
+            </p>
+        </div>
+        <div class="structure_item">
+            <h3>Show Manager App</h3>
+            <p>
+                Show manager app is a web application that manages ticket sales.
+            </p>
+        </div>
+        <div class="structure_item">
+            <h3>User App</h3>
+            <p>
+                User app consists of two web applications. One is for buying tickets used by the general public, and the
+                other is for checking tickets used by the event staff.
+            </p>
+        </div>
+    </div>
+    <div class="block">
+        <h2>Development Cycle</h2>
+        <div class="development_cycle">
+            <div class="block_center">
+                <img src="img/cycle.png" alt="Open Ticket Agency" class="structure_diagram">
+            </div>
+            <p>
+                Open Ticket Agency is developed in an agile way. It is developed in a way that allows you to easily add
+                new
+                features and fix bugs.
+            </p>
+        </div>
+    </div>
+    <div class="block">
+        <h2>Roadmap</h2>
+        <div class="roadmaps">
+            <h3>First Cycle</h3>
+            <p>
+                Now we are developing the first cycle. The first cycle aims to provide a basic ticketing system until
+                the end of 2022.
+            </p>
+            <ul>
+                <li class="roadmaps_done">Smart Contract</li>
+                <li class="roadmaps_done">Deployer App</li>
+                <li class="roadmaps_undone">Agency App</li>
+                <li class="roadmaps_undone">Show Manager App</li>
+                <li class="roadmaps_undone">User App</li>
+            </ul>
+        </div>
+        <div class="roadmaps">
+            <h3>Second Cycle</h3>
+            <p>
+                The second cycle aims to provide a ticketing system that can be used by a large number of people.
+                Smart contract will support almost all features of the ticketing system.
+                But the web application will be limited to the basic features in the first cycle.
+                So we would focus on improving the web application in the second cycle.
+            </p>
+        </div>
+        <div class="roadmaps">
+            <h3>Development goes on</h3>
+            <p>
+                We will continue to develop the system. We will add new features and fix bugs.
+            </p>
+        </div>
+    </div>
+    <div class="block">
+        <div class="footer">
+            <div class="footer_item">
+                © craftclay 2022.
+                All rights reserved.
+            </div>
+            <a href="https://github.com/OpenTicketAgency" rel="noreferrer" target="_blank" class="footer_item"
+                style="margin-left: auto;">
+                <img alt="Github" src="img/github-icon.png" width="32" height="32" />
+            </a>
+            <a href="https://twitter.com/craftclaydev" rel="noreferrer" target="_blank" class="footer_item"
+                style="margin-left: 20px;">
+                <img alt="Twitter" src="img/twitter-icon.png" width="32" height="32" />
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
